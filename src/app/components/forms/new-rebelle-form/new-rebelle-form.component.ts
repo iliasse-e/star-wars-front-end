@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
+import { RebelleService } from 'src/app/services/rebelle.service';
 import {Race} from "../../../enums/race";
 import {IRebelle} from "../../../interfaces/IRebelle";
 
@@ -20,11 +21,20 @@ export class NewRebelleFormComponent implements OnInit {
     race:"",
     age: 0
   }
+  
+  constructor(private rebelleService: RebelleService) {}
 
   public submit(): void {
-    console.log(this.form);
+    console.log("submit", this.form.get('rebelle')?.value);
+    this.newRebelle = this.form.get('rebelle')?.value;
     console.log(this.form.getRawValue());
+    this.rebelleService.saveRebelle(this.newRebelle).subscribe(rebelle => {
+      
+    })
+    
+    
   };
+
 
   ngOnInit(): void {
     this.form = new FormGroup<any>({

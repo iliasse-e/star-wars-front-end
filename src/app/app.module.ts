@@ -18,6 +18,7 @@ import { PageCreationMissionComponent } from './views/page-creation-mission/page
 import { PageClotureMissionComponent } from './views/page-cloture-mission/page-cloture-mission.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewRebelleFormComponent } from './components/forms/new-rebelle-form/new-rebelle-form.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NewRebelleFormComponent } from './components/forms/new-rebelle-form/new
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
