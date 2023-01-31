@@ -22,16 +22,18 @@ export class NewRebelleFormComponent implements OnInit {
   }
 
   public submit(): void {
-    console.log(this.form.value);
+    console.log(this.form);
     console.log(this.form.getRawValue());
   };
 
   ngOnInit(): void {
     this.form = new FormGroup<any>({
-      nom: new FormControl(""),
-      prenom: new FormControl("", Validators.minLength(2)),
-      race: new FormControl(""),
-      age: new FormControl("", [Validators.min(this.MIN_AGE), Validators.max(this.MAX_AGE), Validators.required])
+      rebelle: new FormGroup<any>({
+        nom: new FormControl(""),
+        prenom: new FormControl("", Validators.minLength(2)),
+        race: new FormControl(""),
+        age: new FormControl("", [Validators.min(this.MIN_AGE), Validators.max(this.MAX_AGE), Validators.required])
+      })
     });
 
   }

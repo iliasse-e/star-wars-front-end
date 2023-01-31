@@ -12,16 +12,24 @@ export class RebelleServiceService {
 
   constructor(private http: HttpClient) { }
 
-  public getRebelles(): Observable<any> {
-    return this.http.get<any>(this.url+this.endpoint)
+  public getRebelles(): Observable<IRebelle[]> {
+    return this.http.get<IRebelle[]>(this.url+this.endpoint);
   }
 
-  public saveRebelle(rebelle: IRebelle): Observable<any> {
-    return this.http.post<any>(this.url+this.endpoint);
+  public getRebelle(id: string): Observable<IRebelle> {
+    return this.http.get<IRebelle>(this.url+this.endpoint+id);
   }
 
-  public endFormation(rebelle: IRebelle): Observable<any> {
-    return this.http.post<any>(this.url+this.endpoint);
+  public saveRebelle(rebelle: IRebelle): Observable<IRebelle|any> {
+    return this.http.post<any>(this.url+this.endpoint, rebelle);
+  }
+
+  public updateRebelle(id: string, rebelle: IRebelle): Observable<IRebelle|any> {
+    return this.http.post<any>(this.url+this.endpoint+id, rebelle);
+  }
+
+  public deleteRebelle(id: string): Observable<boolean> {
+    return this.http.delete<boolean>(this.url+this.endpoint+id);
   }
 
 

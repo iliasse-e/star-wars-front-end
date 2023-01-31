@@ -16,11 +16,14 @@ import { PagePiloteComponent } from './views/page-pilote/page-pilote.component';
 import { PageRecherchePiloteComponent } from './views/page-recherche-pilote/page-recherche-pilote.component';
 import { PageCreationMissionComponent } from './views/page-creation-mission/page-creation-mission.component';
 import { PageClotureMissionComponent } from './views/page-cloture-mission/page-cloture-mission.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NewRebelleFormComponent } from './components/forms/new-rebelle-form/new-rebelle-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
+    NewRebelleFormComponent,
     PageRebelleComponent,
     PageInscriptionFormationComponent,
     PageCloturerFormationComponent,
@@ -36,7 +39,8 @@ import { PageClotureMissionComponent } from './views/page-cloture-mission/page-c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
