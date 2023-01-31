@@ -7,6 +7,7 @@
     <div class="">
       <label>Prenom</label>
       <input formControlName="prenom" type="text">
+      <p class="error" *ngIf="form.get('prenom')?.errors">erreur sur le format du prenom</p>
     </div>
     <div class="">
       <label>Race</label>
