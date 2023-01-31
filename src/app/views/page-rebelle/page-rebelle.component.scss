@@ -1,0 +1,13 @@
+.rebel {
+    display: flex;
+    justify-content: center;
+    height: 80vh; 
+    align-items: center;
+}
+
+.rebel-inner {
+    display: inline-flex;
+    flex-direction: column;
+    align-content: stretch;
+    
+}

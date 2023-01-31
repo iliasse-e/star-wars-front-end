@@ -1,0 +1,13 @@
+.fighter {
+    display: flex;
+    justify-content: center;
+    height: 80vh; 
+    align-items: center;
+}
+
+.fighter-inner {
+    display: inline-flex;
+    flex-direction: column;
+    align-content: stretch;
+    
+}
