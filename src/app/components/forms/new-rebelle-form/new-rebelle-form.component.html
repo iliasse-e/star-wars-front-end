@@ -1,0 +1,25 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div class="">
+      <label>Nom</label>
+      <input formControlName="nom" type="text">
+    </div>
+    <div class="">
+      <label>Prenom</label>
+      <input formControlName="prenom" type="text">
+      <p class="error" *ngIf="form.get('prenom')?.errors">erreur sur le format du prenom</p>
+    </div>
+    <div class="">
+      <label>Race</label>
+      <select [(ngModel)]="selectedRace" formControlName="race">
+        <option *ngFor="let race of races" [value]="race">{{ race }}</option>
+      </select>
+    </div>
+    <div class="">
+      <label>Age</label>
+      <input formControlName="age" type="number">
+    </div>
+    <button (click)="submit()">Inscrire</button>
+  </form>
+
+</div>
