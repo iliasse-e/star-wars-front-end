@@ -1,3 +1,49 @@
 app-button{
     display: flex;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #252839;
+    padding: 20px 0;
+}
+nav ul {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    list-style-type: none;
+}
+nav ul li a {
+    position: relative;
+    font-size: 2em;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+}
+nav ul li a::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    width: 0;
+    overflow: hidden;
+    transition: 1s;
+    border-right: 8px solid #fff;
+}
+nav ul li a:hover::before {
+    width: 100%;
+    -webkit-text-stroke: 1px #fff;
+}
