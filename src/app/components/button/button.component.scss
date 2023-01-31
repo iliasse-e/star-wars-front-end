@@ -1,12 +1,52 @@
-input {
-    background-color: black;
-    color: aliceblue;
-    border-radius: 5px;
-    padding: 5px;
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+
+.container a {
+    position: relative;
     width: 100%;
-    text-align: center;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    cursor: pointer;
-    font-family: "starjedi";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.container a:before,
+.container a:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #006eff,#0e1538, #1aff22);
+    transition: 0.5s;
+}
+
+.container a:hover::before
+{
+    inset: -2px;
+    filter: blur(10px);
+}
+.container a:hover::after {
+    inset: -2px;
+    filter: blur(10px);
+}
+
+.container a span {
+    width: 100%;
+    background: #000000;
+    text-transform: uppercase;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    color: #fff;
+    border: 1px solid #040a29;
+    padding: 10px;
 }
