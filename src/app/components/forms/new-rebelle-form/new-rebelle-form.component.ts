@@ -29,7 +29,7 @@ export class NewRebelleFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup<any>({
       nom: new FormControl(""),
-      prenom: new FormControl(""),
+      prenom: new FormControl("", Validators.minLength(2)),
       race: new FormControl(""),
       age: new FormControl("", [Validators.min(this.MIN_AGE), Validators.max(this.MAX_AGE), Validators.required])
     });
