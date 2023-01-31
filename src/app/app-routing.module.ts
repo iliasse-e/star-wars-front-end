@@ -19,10 +19,10 @@ const routes: Routes = [
   {path: "rebelle/inscription", component: PageInscriptionFormationComponent},
   {path: "rebelle/cloturer-formation", component: PageCloturerFormationComponent},
 
-  {path: "pilote", component: PagePiloteComponent},
-  {path: "pilote/recherche", component: PageRecherchePiloteComponent},
-  {path: "pilote/creation-mission", component: PageCreationMissionComponent},
-  {path: "pilote/cloture-mission", component: PageClotureMissionComponent},
+  {path: "mission", component: PagePiloteComponent},
+  {path: "mission/recherche-pilote", component: PageRecherchePiloteComponent},
+  {path: "mission/creation", component: PageCreationMissionComponent},
+  {path: "mission/cloture", component: PageClotureMissionComponent},
   
   {path: "chasseur", component: PageChasseurComponent}, 
   {path: "chasseur/nouveau", component: PageNouveauChasseurComponent},
