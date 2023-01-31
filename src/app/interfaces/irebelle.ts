@@ -1,4 +1,4 @@
-export interface IRebelle {
+export interface Irebelle {
   nom: string,
   prenom: string,
   race: any,

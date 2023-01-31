@@ -1,25 +1,25 @@
-<div class="container">
+<div class="form-container">
   <form [formGroup]="form">
     <div formGroupName="rebelle">
-      <div class="">
+      <div class="input-field">
         <label>Nom</label>
         <input formControlName="nom" type="text">
       </div>
-      <div class="">
+      <div class="input-field">
         <label>Prenom</label>
         <input formControlName="prenom" type="text">
       </div>
-      <div class="">
+      <div class="input-field">
         <label>Race</label>
         <select [(ngModel)]="selectedRace" formControlName="race">
           <option *ngFor="let race of races" [value]="race">{{ race }}</option>
         </select>
       </div>
-      <div class="">
+      <div class="input-field">
         <label>Age</label>
         <input formControlName="age" type="number">
       </div>
     </div>
-    <button (click)="submit()">Inscrire</button>
+    <button class="btn" (click)="submit()">Inscrire</button>
   </form>
 </div>

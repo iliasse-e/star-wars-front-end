@@ -1,27 +1,48 @@
-# Starwars
+# StarWars front-end Application
+## Introduction
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+    Cette application a été développée pour permettre le recrutement de rebelles pour en faire des pilotes et les intégrer dans une mission.
 
-## Development server
+## Architecture
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    L'application utilise une architecture microservice.
+    L'application est divisée en deux parties: une partie front end côté client codée en Angular et une partie back end en Spring
+    fournissant des services web REST API.
 
-## Code scaffolding
+## Prérequis
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    Node.js et npm installés sur votre ordinateur
+    Java 8 ou supérieur installé sur votre ordinateur
+    Maven
+    IDE (IntelliJ, Eclipse, etc.)
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Front End
 
-## Running unit tests
+    Cloner le dépôt Git qui contient le code source Angular (`https://github.com/EveGuerard/Starwars`).
+    Se déplacer dans le répertoire du projet avec la ligne de commande.
+    Exécuter la commande npm install pour installer toutes les dépendances requises.
+    Exécuter la commande ng serve pour démarrer le serveur de développement.
+    Ouvrir un navigateur web et accéder à l'URL http://localhost:4200/.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Back End
 
-## Running end-to-end tests
+    Cloner le dépôt Git qui contient le code source Spring.
+    Ouvrir le projet avec votre IDE (Eclipse, IntelliJ, etc.).
+    Importer les dépendances requises en utilisant Maven.
+    Exécuter le projet en tant qu'application Java.
+    Vérifier que le service REST est en cours d'exécution en accédant à l'URL http://localhost:8080/.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Fonctionnalités de l'application front-end
 
-## Further help
+    * Inscription de rebelles pour le recrutement en tant que pilote.
+    * Inscription de nouveau chasseurs
+    * Affectation des chasseurs
+    * Création de missions
+    * Affectation des pilotes dans les missions
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Documentation API REST
+
+    La documentation de l'API REST peut être trouvée en accédant à l'URL http://localhost:8080/swagger-ui.html une fois le service REST en cours d'exécution.
+

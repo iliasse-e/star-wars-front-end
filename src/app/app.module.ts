@@ -19,6 +19,8 @@ import { PageClotureMissionComponent } from './views/page-cloture-mission/page-c
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewRebelleFormComponent } from './components/forms/new-rebelle-form/new-rebelle-form.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NewChasseurFormComponent } from './components/forms/new-chasseur-form/new-chasseur-form.component';
+import { NewMissionFormComponent } from './components/forms/new-mission-form/new-mission-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     PagePiloteComponent,
     PageRecherchePiloteComponent,
     PageCreationMissionComponent,
-    PageClotureMissionComponent
+    PageClotureMissionComponent,
+    NewChasseurFormComponent,
+    NewMissionFormComponent
   ],
   imports: [
     BrowserModule,

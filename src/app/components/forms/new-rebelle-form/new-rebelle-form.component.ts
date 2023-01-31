@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import { RebelleService } from 'src/app/services/rebelle.service';
 import {Race} from "../../../enums/race";
-import {IRebelle} from "../../../interfaces/IRebelle";
+import {Irebelle} from "../../../interfaces/irebelle";
 
 @Component({
   selector: 'app-new-rebelle-form',
@@ -15,13 +15,8 @@ export class NewRebelleFormComponent implements OnInit {
   protected selectedRace!: Race;
   private MAX_AGE: number = 800;
   private MIN_AGE: number = 10;
-  private newRebelle: IRebelle = {
-    nom:"",
-    prenom:"",
-    race:"",
-    age: 0
-  }
-  
+  private newRebelle!: Irebelle;
+
   constructor(private rebelleService: RebelleService) {}
 
   public submit(): void {
@@ -29,10 +24,7 @@ export class NewRebelleFormComponent implements OnInit {
     this.newRebelle = this.form.get('rebelle')?.value;
     console.log(this.form.getRawValue());
     this.rebelleService.saveRebelle(this.newRebelle).subscribe(rebelle => {
-      
     })
-    
-    
   };
 
 

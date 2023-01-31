@@ -1,0 +1,23 @@
+<div class="form-container">
+  <form [formGroup]="form">
+    <div formGroupName="rebelle">
+      <div class="input-field">
+        <label>Nom</label>
+        <input formControlName="nom" type="text">
+      </div>
+      <div class="input-field">
+        <label>Type</label>
+        <select [(ngModel)]="selectedType" formControlName="type">
+          <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+      <div class="input-field">
+        <label>Etat</label>
+        <select [(ngModel)]="selectedEtat" formControlName="etat">
+          <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" (click)="submit()">Ajouter</button>
+  </form>
+</div>

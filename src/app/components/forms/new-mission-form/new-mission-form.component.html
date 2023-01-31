@@ -1,0 +1,37 @@
+<div class="form-container">
+  <form [formGroup]="form">
+    <div formGroupName="mission">
+      <div class="input-field">
+        <label>Nom de la mission</label>
+        <input formControlName="nom" type="text">
+      </div>
+    </div>
+    <form>
+      <div center class="container">
+        <table class="table table-borderless d-grid gap-5">
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Race</th>
+            <th>Santé</th>
+            <th>Grade</th>
+            <th center class="">Formation terminée</th>
+          </tr>
+          <tr *ngFor="let pilote of pilotes" class="m-5 border border-white">
+            <td class="table-active">{{pilote.id}}</td>
+            <td class="table-active">{{pilote.nom}}</td>
+            <td class="table-active">{{pilote.prenom}}</td>
+            <td class="table-active">{{pilote.race}}</td>
+            <td class="table-active">{{pilote.sante}}</td>
+            <td class="table-active">{{pilote.grade}}</td>
+            <td center class="">
+              <input type="checkbox" name="{{pilote.id}}" />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </form>
+    <button class="btn" (click)="submit()">Créer la mission</button>
+  </form>
+</div>
