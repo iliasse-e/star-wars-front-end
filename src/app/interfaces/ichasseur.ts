@@ -3,7 +3,7 @@ import {ChasseurType} from "../enums/chasseur-type";
 import {ChasseurEtat} from "../enums/chasseur-etat";
 
 export interface IChasseur {
-  nom: string,
+  name: string,
   typeChasseur: ChasseurType,
   etatChasseur: ChasseurEtat,
   pilote?: IPilote

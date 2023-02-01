@@ -1,1 +1,25 @@
-<p>close-formation-form works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Race</th>
+      <th>Age</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rebelle of rebelles">
+      <td>{{rebelle.nom}}</td>
+      <td>{{rebelle.prenom}}</td>
+      <td>{{rebelle.race}}</td>
+      <td>{{rebelle.age}}</td>
+      <td class="actions">
+        <button (click)="handleCloseFormation(rebelle)" class="btn btn-danger btn-sm delete-button">Cloturer sa formation</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

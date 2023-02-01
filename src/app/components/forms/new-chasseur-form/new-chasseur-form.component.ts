@@ -15,15 +15,13 @@ export class NewChasseurFormComponent implements OnInit {
   protected form!: FormGroup;
   protected types: any[] = Object.values(ChasseurType);
   protected etats: any[] = Object.values(ChasseurEtat);
-  protected selectedEtat!: ChasseurEtat;
-  protected selectedType!: ChasseurType;
 
   constructor(private chasseurService: ChasseurService) {  }
 
   ngOnInit(): void {
     this.form = new FormGroup<any>({
       chasseur: new FormGroup<any>({
-        nom: new FormControl(''),
+        name: new FormControl(''),
         typeChasseur: new FormControl(ChasseurType.XWING),
         etatChasseur: new FormControl(ChasseurEtat.OPERATIONNEl)
       })
@@ -31,11 +29,11 @@ export class NewChasseurFormComponent implements OnInit {
   }
 
   public submit() {
-    console.log("essaie de soumettre : " + this.form.get("chasseur")?.value)
     this.newChasseur = this.form.get("chasseur")?.value;
     this.chasseurService.saveChasseur(this.newChasseur).subscribe(chasseur=> {
-      console.log("Chasseur enregistré !")
+      console.log("Nouveau chasseur "+this.newChasseur.typeChasseur +" enregistré !")
+    }, error => {
+      console.error("Chasseur non enregistré : "+error)
     })
   }
-
 }

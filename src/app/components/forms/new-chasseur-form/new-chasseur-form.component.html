@@ -1,23 +1,21 @@
-<div class="form-container">
-  <form [formGroup]="form">
-    <div formGroupName="rebelle">
-      <div class="input-field">
-        <label>Nom</label>
-        <input formControlName="nom" type="text">
-      </div>
-      <div class="input-field">
-        <label>Type</label>
-        <select [(ngModel)]="selectedType" formControlName="type">
-          <option *ngFor="let type of types" [value]="type">{{ type }}</option>
-        </select>
-      </div>
-      <div class="input-field">
-        <label>Etat</label>
-        <select [(ngModel)]="selectedEtat" formControlName="etat">
-          <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
-        </select>
-      </div>
+<form [formGroup]="form">
+  <div formGroupName="chasseur">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" formControlName="name">
     </div>
-    <button class="btn" (click)="submit()">Ajouter</button>
-  </form>
-</div>
+    <div class="form-group">
+      <label for="typeChasseur">Type de Chasseur</label>
+      <select id="typeChasseur" formControlName="typeChasseur">
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="etatChasseur">Etat du Chasseur</label>
+      <select id="etatChasseur" formControlName="etatChasseur">
+        <option *ngFor="let etat of etats" [value]="etat">{{etat}}</option>
+      </select>
+    </div>
+  </div>
+  <button (click)="submit()">Enregistrer</button>
+</form>

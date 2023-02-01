@@ -25,6 +25,9 @@ export class NewMissionFormComponent implements OnInit {
     this.newMission = this.form.get('mission')?.value;
     console.log(this.form.getRawValue());
     this.missionService.saveMission(this.newMission).subscribe(mission => {
+      console.log("Mission "+ this.newMission.nom +" prête à être lancé");
+    }, error => {
+      console.error("Error mission non sauvegardé : "+error);
     })
   };
 
