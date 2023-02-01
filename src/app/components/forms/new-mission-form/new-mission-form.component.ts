@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Race} from "../../../enums/race";
-import {Irebelle} from "../../../interfaces/irebelle";
-import {RebelleService} from "../../../services/rebelle.service";
+//import {Race} from "../../../enums/race";
+//import {Irebelle} from "../../../interfaces/irebelle";
+//import {RebelleService} from "../../../services/rebelle.service";
 import {IMission} from "../../../interfaces/imission";
 import {MissionService} from "../../../services/mission.service";
 import {IPilote} from "../../../interfaces/ipilote";
