@@ -1,6 +1,8 @@
+import {Race} from "../enums/race";
+
 export interface Irebelle {
   nom: string,
   prenom: string,
-  race: any,
+  race: Race,
   age: number
 }

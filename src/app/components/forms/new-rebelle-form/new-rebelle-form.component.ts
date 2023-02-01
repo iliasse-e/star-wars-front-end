@@ -23,8 +23,12 @@ export class NewRebelleFormComponent implements OnInit {
     console.log("submit", this.form.get('rebelle')?.value);
     this.newRebelle = this.form.get('rebelle')?.value;
     console.log(this.form.getRawValue());
-    this.rebelleService.saveRebelle(this.newRebelle).subscribe(rebelle => {
-    })
+    this.rebelleService.saveRebelle(this.newRebelle).subscribe(  rebelle => {
+        console.log(this.newRebelle.prenom+" vient d'être inscrit en formation !");
+      },
+      error => {
+        console.error("Erreur lors de l'enregistrement du rebelle : ", error);
+      })
   };
 
 
