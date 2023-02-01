@@ -21,7 +21,7 @@ export class RebelleService {
   }
 
   public saveRebelle(rebelle: Irebelle): Observable<Irebelle|any> {
-    console.log("données passé au service rebelle : " + rebelle.nom);
+    console.log("données passé au service rebelle : " + rebelle);
     return this.http.post<any>(this.url+this.endpoint, rebelle);
   }
 

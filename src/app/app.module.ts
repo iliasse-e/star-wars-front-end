@@ -21,6 +21,7 @@ import { NewRebelleFormComponent } from './components/forms/new-rebelle-form/new
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NewChasseurFormComponent } from './components/forms/new-chasseur-form/new-chasseur-form.component';
 import { NewMissionFormComponent } from './components/forms/new-mission-form/new-mission-form.component';
+import { CloseFormationFormComponent } from './components/forms/close-formation-form/close-formation-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NewMissionFormComponent } from './components/forms/new-mission-form/new
     PageCreationMissionComponent,
     PageClotureMissionComponent,
     NewChasseurFormComponent,
-    NewMissionFormComponent
+    NewMissionFormComponent,
+    CloseFormationFormComponent
   ],
   imports: [
     BrowserModule,
