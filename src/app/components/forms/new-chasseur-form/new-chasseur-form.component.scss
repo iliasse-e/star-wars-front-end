@@ -1,1 +1,26 @@
 @import "../form";
+
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    margin-top: 10%;
+}
+
+button {
+    color: #0E1538;
+    cursor: pointer;
+}
+
+label {
+    color: aliceblue;
+    margin: 20px;
+}
+
+input {
+    width: 200px;
+}
+select {
+    width: 200px;
+}
