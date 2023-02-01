@@ -1,0 +1,8 @@
+* {
+  font-family: 'starjedi';
+}
+
+// declenche erreur quand la data dans l'input est invalide
+.ng-invalid .ng-touched {
+  border-color: red;
+}
