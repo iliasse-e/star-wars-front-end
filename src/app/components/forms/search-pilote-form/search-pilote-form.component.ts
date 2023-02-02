@@ -9,6 +9,7 @@ import {PiloteService} from "../../../services/pilote.service";
 })
 export class SearchPiloteFormComponent implements OnInit {
   pilotes!: IPilote[];
+  selectedPilote!: IPilote;
   filteredPilotes!: IPilote[];
   searchName!: string;
 
@@ -16,6 +17,10 @@ export class SearchPiloteFormComponent implements OnInit {
 
   ngOnInit() {
     this.getPilotes();
+  }
+
+  displayChasseurInfo(pilote: IPilote) {
+    this.selectedPilote = pilote;
   }
 
   getPilotes() {

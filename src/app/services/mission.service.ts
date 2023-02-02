@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IMission} from "../interfaces/imission";
 
@@ -29,8 +29,14 @@ export class MissionService {
     return this.http.post<any>(this.url+this.endpoint+id, mission);
   }
 
-  public deleteMission(id: string): Observable<boolean> {
-    return this.http.delete<boolean>(this.url+this.endpoint+id);
+  public deleteMission(id: string): Observable<any> {
+    return this.http.delete<any>(this.url+this.endpoint+"/missions/"+id, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'DELETE'
+      })
+    });
   }
 
 }
