@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IMission} from "../interfaces/imission";
 import {IPilote} from "../interfaces/ipilote";
@@ -32,6 +32,12 @@ export class PiloteService {
 
   public deletePilote(id: string): Observable<boolean> {
     return this.http.delete<boolean>(this.url+this.endpoint+id);
+  }
+
+  public affect(piloteId: string, chasseurId: string): Observable<any> {
+    return this.http.put<any>(this.url+this.endpoint+"/affecter_chasseur/"+piloteId,{}, {
+      params: new HttpParams().set("chasseurId", chasseurId)
+    });
   }
 
   public desaffect(piloteId: string): Observable<boolean> {

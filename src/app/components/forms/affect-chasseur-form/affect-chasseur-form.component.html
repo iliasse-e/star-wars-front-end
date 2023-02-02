@@ -1,22 +1,42 @@
-<div class="container">
-  <h2>Affectation pilote / chasseur</h2>
-  <div class="row">
-    <div class="col-6">
-      <h3>Liste des pilotes</h3>
-      <div *ngFor="let pilote of pilotes">
-        <input type="radio" name="piloteRadio" [(ngModel)]="selectedPilote" [value]="pilote">{{pilote.nom}}
+<mat-card class="container">
+  <mat-card-header>
+    <mat-card-title>Affectation pilote / chasseur</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-6">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Liste des pilotes</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <table *ngFor="let pilote of pilotes">
+              <mat-radio-group [(ngModel)]="selectedPilote">
+                <mat-radio-button [value]="pilote">{{pilote.nom}}</mat-radio-button>
+              </mat-radio-group>
+            </table>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-6">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Liste des chasseurs</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <table *ngFor="let chasseur of chasseurs">
+              <mat-radio-group [(ngModel)]="selectedChasseur">
+                <mat-radio-button [value]="chasseur">{{chasseur.name}}</mat-radio-button>
+              </mat-radio-group>
+            </table>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-    <div class="col-6">
-      <h3>Liste des chasseurs</h3>
-      <div *ngFor="let chasseur of chasseurs">
-        <input type="radio" name="chasseurRadio" [(ngModel)]="selectedChasseur" [value]="chasseur">{{chasseur.name}}
+    <div class="row">
+      <div class="col-12">
+        <button mat-raised-button (click)="affecter()">Affecter</button>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <button (click)="affecter()">Affecter</button>
-    </div>
-  </div>
-</div>
+  </mat-card-content>
+</mat-card>

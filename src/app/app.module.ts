@@ -35,6 +35,8 @@ import {MatTableModule} from "@angular/material/table";
 import {NavlinkComponentHeader} from './components/navlink/navlink.header';
 import {MatIconModule, MatIconRegistry} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatCardModule} from "@angular/material/card";
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatTableModule,
     MatIconModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

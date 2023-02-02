@@ -33,7 +33,7 @@ export class CloseMissionFormComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        this.missionService.deleteMission(mission.id).subscribe(() => {
+        this.missionService.endMission(mission.id, 44).subscribe(() => {
           this.getMissions();
         });
       }

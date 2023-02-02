@@ -43,6 +43,8 @@ export class NewRebelleFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup<any>({
       rebelle: new FormGroup<any>({
+        id: new FormControl(null),
+        enFormation: new FormControl(true),
         nom: new FormControl(""),
         prenom: new FormControl("", Validators.minLength(2)),
         race: new FormControl(""),

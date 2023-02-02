@@ -3,6 +3,7 @@ import {IPilote} from "../../../interfaces/ipilote";
 import {IChasseur} from "../../../interfaces/ichasseur";
 import {PiloteService} from "../../../services/pilote.service";
 import {ChasseurService} from "../../../services/chasseur.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-affect-chasseur-form',
@@ -15,7 +16,7 @@ export class AffectChasseurFormComponent implements OnInit {
   public selectedChasseur!: IChasseur;
   public selectedPilote!: IPilote;
 
-  constructor(private chasseurService: ChasseurService, private piloteService: PiloteService) { }
+  constructor(private chasseurService: ChasseurService, private piloteService: PiloteService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.chasseurService.getChasseurs().subscribe(chasseurs => {
@@ -35,6 +36,18 @@ export class AffectChasseurFormComponent implements OnInit {
   }
 
   public affecter(): void {
-    // Affectation logic
+    this.piloteService.affect(this.selectedPilote.id, this.selectedChasseur.id).subscribe(()=> {
+      this.snackbar.open(this.selectedChasseur.name+" vient d'être attribué a "+this.selectedPilote.prenom, '', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
+      });
+    }, error => {
+      this.snackbar.open("Affectation échouée", '', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
+      });
+    })
   }
 }

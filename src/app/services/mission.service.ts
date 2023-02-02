@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IMission} from "../interfaces/imission";
+import {Mission} from "../enums/mission";
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,10 @@ export class MissionService {
         'Access-Control-Allow-Methods': 'DELETE'
       })
     });
+  }
+
+  public endMission(id: string, nbHeure: number): Observable<IMission> {
+    return this.http.put<any>(this.url+this.endpoint+"/missions/"+id, {});
   }
 
 }
