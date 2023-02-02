@@ -18,13 +18,25 @@ export class NewMissionFormComponent implements OnInit {
   protected pilotes!: IPilote[];
   public form!: FormGroup;
   private newMission!: IMission;
+  // ajoutez un tableau pour stocker les identificateurs des pilotes sélectionnés
+  selectedPiloteIds: string[] = [];
+
+// ajoutez un événement de changement sur les checkboxes
+  public onPiloteSelectionChanged(event: any, piloteId: string) {
+    if (event.target.checked) {
+      this.selectedPiloteIds.push(piloteId);
+    } else {
+      const index = this.selectedPiloteIds.indexOf(piloteId);
+      this.selectedPiloteIds.splice(index, 1);
+    }
+  }
 
   constructor(private missionService: MissionService, private piloteService: PiloteService, private snackbar: MatSnackBar) {}
 
   public submit(): void {
-    console.log("submit", this.form.get('mission')?.value);
     this.newMission = this.form.get('mission')?.value;
-    console.log(this.form.getRawValue());
+    this.newMission.pilotes = this.pilotes.filter(pilote => this.selectedPiloteIds.includes(pilote.id));
+    console.log(this.newMission)
     this.missionService.saveMission(this.newMission).subscribe(mission => {
       this.snackbar.open("La mission "+ this.newMission.nom +" vient d'être lancée", '', {
         duration: 2000,
@@ -32,13 +44,13 @@ export class NewMissionFormComponent implements OnInit {
         horizontalPosition: 'center'
       });
     }, error => {
-      this.snackbar.open("Error mission non sauvegardé", '', {
+      this.snackbar.open("Une erreur s'est produite lors de la création de la mission", '', {
         duration: 2000,
         verticalPosition: 'top',
         horizontalPosition: 'center'
       });
-    })
-  };
+    });
+  }
 
   ngOnInit(): void {
     this.piloteService.getPilotes().subscribe(pilotes => {
@@ -47,7 +59,7 @@ export class NewMissionFormComponent implements OnInit {
     this.form = new FormGroup<any>({
       mission: new FormGroup<any>({
         nom: new FormControl(""),
-        pilotes: new FormControl(""),
+        pilotes: new FormControl([]),
       })
     });
 

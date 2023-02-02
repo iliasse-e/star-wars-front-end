@@ -26,7 +26,7 @@
             <td class="table-active">{{pilote.sante}}</td>
             <td class="table-active">{{pilote.grade}}</td>
             <td center class="">
-              <input type="checkbox" name="{{pilote.id}}" />
+              <input type="checkbox" (change)="onPiloteSelectionChanged($event, pilote.id)" name="{{pilote.id}}" />
             </td>
           </tr>
         </table>

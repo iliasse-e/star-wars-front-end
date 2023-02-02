@@ -14,7 +14,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let pilote of filteredPilotes">
+    <tr *ngFor="let pilote of filteredPilotes" (click)="displayChasseurInfo(pilote)">
       <td>{{pilote.nom}}</td>
       <td>{{pilote.prenom}}</td>
       <td>{{pilote.race}}</td>
@@ -25,4 +25,11 @@
     </tr>
     </tbody>
   </table>
+  <div *ngIf="selectedPilote">
+    <h3>Informations sur le Chasseur</h3>
+    <p>Nom : {{selectedPilote.chasseur.name}}</p>
+    <p>Modèle : {{selectedPilote.chasseur.typeChasseur}}</p>
+    <p>Etat : {{selectedPilote.chasseur.etatChasseur}}</p>
+    ...
+  </div>
 </div>
