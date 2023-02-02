@@ -30,7 +30,7 @@ export class NewChasseurFormComponent implements OnInit {
   }
 
   public submit() {
-    this.newChasseur = this.form.get("chasseur")?.value;
+    this.newChasseur = this.form.get('chasseur')?.value;
     this.chasseurService.saveChasseur(this.newChasseur).subscribe(chasseur=> {
       this.snackbar.open("Nouveau chasseur "+this.newChasseur.name +" enregistré !", '', {
         duration: 2000,

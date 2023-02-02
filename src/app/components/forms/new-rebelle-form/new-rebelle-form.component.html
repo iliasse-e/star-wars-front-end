@@ -1,5 +1,5 @@
-<div class="form-container">
-  <form [formGroup]="form">
+
+<form [formGroup]="form" class="form-container">
     <div formGroupName="rebelle">
       <div class="input-field">
         <label>Nom</label>
@@ -20,6 +20,5 @@
         <input formControlName="age" type="number">
       </div>
     </div>
-    <button class="btn" (click)="submit()">Inscrire</button>
-  </form>
-</div>
+    <app-button class="btn" buttonText="Inscrire" size="small" (click)="submit()"/>
+</form>
