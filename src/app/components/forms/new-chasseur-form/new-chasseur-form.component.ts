@@ -4,6 +4,7 @@ import {ChasseurService} from "../../../services/chasseur.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ChasseurType} from "../../../enums/chasseur-type";
 import {ChasseurEtat} from "../../../enums/chasseur-etat";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-new-chasseur-form',
@@ -13,17 +14,17 @@ import {ChasseurEtat} from "../../../enums/chasseur-etat";
 export class NewChasseurFormComponent implements OnInit {
   private newChasseur!: IChasseur;
   protected form!: FormGroup;
-  protected types: any[] = Object.values(ChasseurType);
-  protected etats: any[] = Object.values(ChasseurEtat);
+  protected types: any[] = Object.values(ChasseurType).filter(value => typeof value !== 'number');
+  protected etats: any[] = Object.values(ChasseurEtat).filter(value => typeof value !== 'number');
 
-  constructor(private chasseurService: ChasseurService) {  }
+  constructor(private chasseurService: ChasseurService, private snackbar: MatSnackBar) {  }
 
   ngOnInit(): void {
     this.form = new FormGroup<any>({
       chasseur: new FormGroup<any>({
         name: new FormControl(''),
         typeChasseur: new FormControl(ChasseurType.XWING),
-        etatChasseur: new FormControl(ChasseurEtat.OPERATIONNEl)
+        etatChasseur: new FormControl(ChasseurEtat.OPERATIONNEL)
       })
     })
   }
@@ -31,9 +32,17 @@ export class NewChasseurFormComponent implements OnInit {
   public submit() {
     this.newChasseur = this.form.get("chasseur")?.value;
     this.chasseurService.saveChasseur(this.newChasseur).subscribe(chasseur=> {
-      console.log("Nouveau chasseur "+this.newChasseur.typeChasseur +" enregistré !")
+      this.snackbar.open("Nouveau chasseur "+this.newChasseur.typeChasseur +" enregistré !", '', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
+      })
     }, error => {
-      console.error("Chasseur non enregistré : "+error)
+      this.snackbar.open("Chasseur non enregistré !", '', {
+        duration: 2000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
+      })
     })
   }
 }

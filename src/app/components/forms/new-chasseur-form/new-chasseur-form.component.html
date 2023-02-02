@@ -1,40 +1,19 @@
-<form [formGroup]="form">
-  <div formGroupName="chasseur">
-    <div class="form-group">
-      <label for="nom">Nom</label>
-      <input type="text" id="nom" formControlName="name">
-    </div>
-    <div class="form-group">
-      <label for="typeChasseur">Type de Chasseur</label>
-      <select id="typeChasseur" formControlName="typeChasseur">
-        <option *ngFor="let type of types" [value]="type">{{type}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="etatChasseur">Etat du Chasseur</label>
-      <select id="etatChasseur" formControlName="etatChasseur">
-        <option *ngFor="let etat of etats" [value]="etat">{{etat}}</option>
-      </select>
-    </div>
-  </div>
-  <button (click)="submit()">Enregistrer</button>
-</form>
 <div class="form-container">
   <form [formGroup]="form">
-    <div formGroupName="rebelle">
+    <div formGroupName="chasseur">
       <div class="input-field">
         <label>Nom</label>
-        <input formControlName="nom" type="text" placeholder="Tapez le nom">
+        <input formControlName="name" type="text" placeholder="Tapez le nom">
       </div>
       <div class="input-field">
         <label>Type</label>
-        <select [(ngModel)]="selectedType" formControlName="type">
+        <select formControlName="type">
           <option *ngFor="let type of types" [value]="type">{{ type }}</option>
         </select>
       </div>
       <div class="input-field">
         <label>Etat</label>
-        <select [(ngModel)]="selectedEtat" formControlName="etat">
+        <select formControlName="etat">
           <option *ngFor="let etat of etats" [value]="etat">{{ etat }}</option>
         </select>
       </div>

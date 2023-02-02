@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Table de Pilotes Disponibles</h2>
+  <input type="text" [(ngModel)]="searchName" (change)="getPilotesByName(searchName)">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Race</th>
+      <th>Grade</th>
+      <th>Sante</th>
+      <th>Age</th>
+      <th>Mission</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pilote of filteredPilotes">
+      <td>{{pilote.nom}}</td>
+      <td>{{pilote.prenom}}</td>
+      <td>{{pilote.race}}</td>
+      <td>{{pilote.grade}}</td>
+      <td>{{pilote.sante}}</td>
+      <td>{{pilote.age}}</td>
+      <td>{{pilote.missionActuelle.nom}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

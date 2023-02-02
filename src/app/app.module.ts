@@ -16,12 +16,25 @@ import { PagePiloteComponent } from './views/page-pilote/page-pilote.component';
 import { PageRecherchePiloteComponent } from './views/page-recherche-pilote/page-recherche-pilote.component';
 import { PageCreationMissionComponent } from './views/page-creation-mission/page-creation-mission.component';
 import { PageClotureMissionComponent } from './views/page-cloture-mission/page-cloture-mission.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NewRebelleFormComponent } from './components/forms/new-rebelle-form/new-rebelle-form.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NewChasseurFormComponent } from './components/forms/new-chasseur-form/new-chasseur-form.component';
 import { NewMissionFormComponent } from './components/forms/new-mission-form/new-mission-form.component';
 import { CloseFormationFormComponent } from './components/forms/close-formation-form/close-formation-form.component';
+import { DesaffecterChasseursFormComponent } from './components/forms/desaffecter-chasseurs-form/desaffecter-chasseurs-form.component';
+import { SearchPiloteFormComponent } from './components/forms/search-pilote-form/search-pilote-form.component';
+import { CloseMissionFormComponent } from './components/forms/close-mission-form/close-mission-form.component';
+import { AffectChasseurFormComponent } from './components/forms/affect-chasseur-form/affect-chasseur-form.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog-component/confirm-dialog-component.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatTableModule} from "@angular/material/table";
+import {NavlinkComponentHeader} from './components/navlink/navlink.header';
+import {MatIconModule, MatIconRegistry} from "@angular/material/icon";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -42,13 +55,28 @@ import { CloseFormationFormComponent } from './components/forms/close-formation-
     PageClotureMissionComponent,
     NewChasseurFormComponent,
     NewMissionFormComponent,
-    CloseFormationFormComponent
+    CloseFormationFormComponent,
+    DesaffecterChasseursFormComponent,
+    SearchPiloteFormComponent,
+    CloseMissionFormComponent,
+    AffectChasseurFormComponent,
+    ConfirmDialogComponent,
+    NavlinkComponentHeader
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule, 
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatDialogModule,
+    FormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

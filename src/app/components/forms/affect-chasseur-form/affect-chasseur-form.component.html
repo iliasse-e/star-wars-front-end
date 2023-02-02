@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Affectation pilote / chasseur</h2>
+  <div class="row">
+    <div class="col-6">
+      <h3>Liste des pilotes</h3>
+      <div *ngFor="let pilote of pilotes">
+        <input type="radio" name="piloteRadio" [(ngModel)]="selectedPilote" [value]="pilote">{{pilote.nom}}
+      </div>
+    </div>
+    <div class="col-6">
+      <h3>Liste des chasseurs</h3>
+      <div *ngFor="let chasseur of chasseurs">
+        <input type="radio" name="chasseurRadio" [(ngModel)]="selectedChasseur" [value]="chasseur">{{chasseur.name}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button (click)="affecter()">Affecter</button>
+    </div>
+  </div>
+</div>

@@ -33,4 +33,8 @@ export class PiloteService {
   public deletePilote(id: string): Observable<boolean> {
     return this.http.delete<boolean>(this.url+this.endpoint+id);
   }
+
+  public desaffect(piloteId: string): Observable<boolean> {
+    return new Observable<boolean>();
+  }
 }

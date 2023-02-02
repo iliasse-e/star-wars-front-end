@@ -17,6 +17,10 @@ export class ChasseurService {
     return this.http.get<IChasseur[]>(this.url+this.endpoint);
   }
 
+  public getChasseursAffected(): Observable<IChasseur[]> {
+    return this.http.get<IChasseur[]>(this.url+this.endpoint+"/pilotess");
+  }
+
   public getChasseur(id: string): Observable<IChasseur> {
     return this.http.get<IChasseur>(this.url+this.endpoint+id);
   }
@@ -32,6 +36,10 @@ export class ChasseurService {
 
   public deleteChasseur(id: string): Observable<boolean> {
     return this.http.delete<boolean>(this.url+this.endpoint+id);
+  }
+
+  public desaffect(id: string): Observable<boolean> {
+    return new Observable<boolean>();
   }
 
 }
