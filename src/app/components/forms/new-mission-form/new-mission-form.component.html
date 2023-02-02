@@ -7,7 +7,7 @@
       </div>
     </div>
     <form>
-      <div center class="container">
+      <div class="">
         <table class="table table-borderless d-grid gap-5">
           <tr>
             <th>ID</th>
@@ -16,7 +16,7 @@
             <th>Race</th>
             <th>Santé</th>
             <th>Grade</th>
-            <th center class="">Intégrer à la mission</th>
+            <th class="">Intégrer à la mission</th>
           </tr>
           <tr *ngFor="let pilote of pilotes" class="m-5 border border-white">
             <td class="table-active">{{pilote.id}}</td>
@@ -25,13 +25,13 @@
             <td class="table-active">{{pilote.race}}</td>
             <td class="table-active">{{pilote.sante}}</td>
             <td class="table-active">{{pilote.grade}}</td>
-            <td center class="">
+            <td class="">
               <input type="checkbox" (change)="onPiloteSelectionChanged($event, pilote.id)" name="{{pilote.id}}" />
             </td>
           </tr>
         </table>
       </div>
     </form>
-    <button class="btn" (click)="submit()">Créer la mission</button>
+    <app-button buttonText="Créer la mission" size="small" (click)="submit()"/>
   </form>
 </div>

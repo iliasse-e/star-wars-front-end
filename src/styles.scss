@@ -12,6 +12,20 @@ body *{
     font-family: 'Poppins', sans-serif;
 }
 
+.container, .form-container {
+  opacity: 0;
+  animation: fade-in ease-in 0.5s forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 // @font-face {
 //     font-family:"starjedi" ;
 //     src: url('./assets/Starjedi.ttf');

@@ -1,9 +1,6 @@
 <mat-card class="container">
-  <mat-card-header>
-    <mat-card-title>Affectation pilote / chasseur</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="row">
+  <mat-card-content >
+    <div class="row box">
       <div class="col-6">
         <mat-card>
           <mat-card-header>
@@ -33,9 +30,9 @@
         </mat-card>
       </div>
     </div>
-    <div class="row">
+    <div class="row box">
       <div class="col-12">
-        <button mat-raised-button (click)="affecter()">Affecter</button>
+        <app-button buttonText="Affecter" size="small" (click)="affecter()" />
       </div>
     </div>
   </mat-card-content>
