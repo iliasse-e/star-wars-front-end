@@ -1,6 +1,39 @@
 * {
   font-family: 'starjedi';
+  color: aliceblue;
 }
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+  margin-top: 10%;
+}
+
+button {
+  color: #0E1538;
+  cursor: pointer;
+}
+
+label {
+  color: aliceblue;
+  margin: 20px;
+  //display: inline-block;
+  float: left;
+  clear: left;
+  width: 50px;
+}
+
+input {
+  width: 200px;
+  float: left;
+  margin: 20px;
+}
+select {
+  width: 200px;
+  float: left;
+  margin: 20px;
+}
+
 
 // declenche erreur quand la data dans l'input est invalide
 .ng-invalid .ng-touched {
