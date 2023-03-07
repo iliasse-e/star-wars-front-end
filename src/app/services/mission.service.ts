@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IMission} from "../interfaces/imission";
-import {Mission} from "../enums/mission";
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +16,22 @@ export class MissionService {
     return this.http.get<IMission[]>(this.url+this.endpoint);
   }
 
+  public getMissionsCompleted(): Observable<IMission[]> {
+    return this.http.get<IMission[]>(this.url+this.endpoint+"/completed");
+  }
+
+  public getMissionsInProgress(): Observable<IMission[]> {
+    return this.http.get<IMission[]>(this.url+this.endpoint+"/in-progress");
+  }
+
   public getMission(id: string): Observable<IMission> {
     return this.http.get<IMission>(this.url+this.endpoint+id);
   }
 
-  public saveMission(mission: IMission): Observable<IMission|any> {
-    console.log("données passé au service mission : " + mission.nom);
-    return this.http.post<any>(this.url+this.endpoint, mission);
+  public saveMission(name: string, pilotesId: string[]): Observable<IMission|any> {
+    const body = { name: name, pilotesId: pilotesId };
+    console.log("données passé au service mission : " + name);
+    return this.http.post<any>(this.url+this.endpoint, body);
   }
 
   public updateMission(id: string, mission: IMission): Observable<IMission|any> {
@@ -31,7 +39,7 @@ export class MissionService {
   }
 
   public deleteMission(id: string): Observable<any> {
-    return this.http.delete<any>(this.url+this.endpoint+"/missions/"+id, {
+    return this.http.delete<any>(this.url+this.endpoint+"/"+id, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
@@ -41,7 +49,7 @@ export class MissionService {
   }
 
   public endMission(id: string, nbHeure: number): Observable<IMission> {
-    return this.http.put<any>(this.url+this.endpoint+"/missions/"+id, {});
+    return this.http.put<any>(this.url+this.endpoint+"/end-mission/"+id+"/"+nbHeure, {});
   }
 
 }

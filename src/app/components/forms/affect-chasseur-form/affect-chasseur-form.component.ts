@@ -19,10 +19,10 @@ export class AffectChasseurFormComponent implements OnInit {
   constructor(private chasseurService: ChasseurService, private piloteService: PiloteService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.chasseurService.getChasseurs().subscribe(chasseurs => {
+    this.chasseurService.getChasseursAvailables().subscribe(chasseurs => {
       this.chasseurs = chasseurs;
     });
-    this.piloteService.getPilotes().subscribe(pilotes => {
+    this.piloteService.getPilotesAvailable().subscribe(pilotes => {
       this.pilotes = pilotes;
     });
   }
@@ -36,14 +36,14 @@ export class AffectChasseurFormComponent implements OnInit {
   }
 
   public affecter(): void {
-    this.piloteService.affect(this.selectedPilote.id, this.selectedChasseur.id).subscribe(()=> {
-      this.snackbar.open(this.selectedChasseur.name+" vient d'être attribué a "+this.selectedPilote.prenom, '', {
+    this.piloteService.affect(this.selectedPilote.id as string, this.selectedChasseur.id).subscribe(()=> {
+      this.snackbar.open(this.selectedChasseur.name+" vient d'être attribué a "+this.selectedPilote.nom, '', {
         duration: 2000,
         verticalPosition: 'top',
         horizontalPosition: 'center'
       });
     }, error => {
-      this.snackbar.open("Affectation échouée", '', {
+      this.snackbar.open("Affectation échouée : "+error, '', {
         duration: 2000,
         verticalPosition: 'top',
         horizontalPosition: 'center'

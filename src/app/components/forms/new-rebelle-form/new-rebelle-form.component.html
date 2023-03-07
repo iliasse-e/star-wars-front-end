@@ -6,10 +6,6 @@
         <input formControlName="nom" type="text">
       </div>
       <div class="input-field">
-        <label>Prenom</label>
-        <input formControlName="prenom" type="text">
-      </div>
-      <div class="input-field">
         <label>Race</label>
         <select [(ngModel)]="selectedRace" formControlName="race">
           <option *ngFor="let race of races" [value]="race">{{ race }}</option>

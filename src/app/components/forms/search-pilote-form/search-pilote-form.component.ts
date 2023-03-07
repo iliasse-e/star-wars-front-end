@@ -27,16 +27,12 @@ export class SearchPiloteFormComponent implements OnInit {
     this.piloteService.getPilotes().subscribe(pilotes => {
       this.pilotes = pilotes;
       this.filteredPilotes = pilotes;
+      console.log(pilotes)
     });
   }
 
-  getPilotesByName(name: string) {
-    /*this.piloteService.getPilotesByName(name).subscribe(pilotes => {
-      this.pilotes = pilotes;
-      this.filteredPilotes = pilotes;
-    }, error => {
-        console.error(this.searchName+" non trouvé");
-      }
-    );*/
+  searchPilotesByName(name: string) {
+    this.filteredPilotes = this.pilotes.filter(pilote => pilote.nom.toLowerCase().startsWith(name.toLowerCase()));
+    console.log(name, this.filteredPilotes);
   }
 }

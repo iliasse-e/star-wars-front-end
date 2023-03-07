@@ -8,6 +8,7 @@ Cette application a été développée pour permettre le recrutement de rebelles
 L'application utilise une architecture microservice.
 L'application est divisée en deux parties: une partie front end côté client codée en Angular et une partie back end en Spring
 fournissant des services web REST API.
+Le frontend utilise le framework Angular 15
 
 ## Prérequis
 
@@ -50,3 +51,15 @@ La documentation de l'API REST peut être trouvée en accédant à l'URL
     `http://localhost:8080/swagger-ui.html` 
 une fois le service REST en cours d'exécution.
 
+## Description technique 
+
+L'application utilise Angular pour créer une SPA, permettant de créer un site web dynamique, décomposé en composants réutilisables.
+</br>
+L'application s'organise selon le découpage suivant :
+
+### Les composants (ex: boutton, barre de navigation, formulaires)
+### Les pages : qui vont imbriquer un ensemble de composants (formulaires, bouton, navigation, ...)
+### Les services : correspond aux méthodes qui vont consommer les API (missions, rebelles, chasseurs)
+### Interfaces : typage des données qui seront manipulés (va servir à la robustesse de l'application)
+### Routing : Permet la mise en place de la navigation d'une page à l'autre
+### Fichier app.module : fichier de configuration permettant d'importer l'ensemble des composants, services et bibliothèques

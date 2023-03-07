@@ -1,35 +1,40 @@
-<div class="container">
-  <h2>Table de Pilotes Disponibles</h2>
-  <input type="text" [(ngModel)]="searchName" (change)="getPilotesByName(searchName)">
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Prenom</th>
-      <th>Race</th>
-      <th>Grade</th>
-      <th>Sante</th>
-      <th>Age</th>
-      <th>Mission</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let pilote of filteredPilotes" (click)="displayChasseurInfo(pilote)">
-      <td>{{pilote.nom}}</td>
-      <td>{{pilote.prenom}}</td>
-      <td>{{pilote.race}}</td>
-      <td>{{pilote.grade}}</td>
-      <td>{{pilote.sante}}</td>
-      <td>{{pilote.age}}</td>
-      <td>{{pilote.missionActuelle.nom}}</td>
-    </tr>
-    </tbody>
-  </table>
-  <div *ngIf="selectedPilote">
-    <h3>Informations sur le Chasseur</h3>
-    <p>Nom : {{selectedPilote.chasseur.name}}</p>
-    <p>Modèle : {{selectedPilote.chasseur.typeChasseur}}</p>
-    <p>Etat : {{selectedPilote.chasseur.etatChasseur}}</p>
-    ...
+<main>
+  <div class="container">
+    <div class="search-container">
+      <label style="padding-right: 20px">Recherche </label>
+      <input type="text" id="pilote-input" [(ngModel)]="searchName" (change)="searchPilotesByName(searchName)" placeholder="entrer nom du pilote">
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Race</th>
+        <th>Grade</th>
+        <th>Sante</th>
+        <th>Age</th>
+        <th>Mission</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pilote of filteredPilotes" (click)="displayChasseurInfo(pilote)">
+        <td>{{pilote.nom}}</td>
+        <td>{{pilote.race}}</td>
+        <td>{{pilote.grade}}</td>
+        <td>{{pilote.sante}}</td>
+        <td>{{pilote.age}}</td>
+        <td *ngIf="pilote.inMission">En mission</td>
+      </tr>
+      </tbody>
+    </table>
+    <div style="position: fixed; right: 10%" *ngIf="selectedPilote && selectedPilote.chasseur">
+      <h3>Informations sur le Chasseur</h3>
+      <p>Nom : {{selectedPilote.chasseur.name}}</p>
+      <p>Modèle : {{selectedPilote.chasseur.typeChasseur}}</p>
+      <p>Etat : {{selectedPilote.chasseur.etatChasseur}}</p>
+    </div>
+    <div style="position: fixed; right: 10%" *ngIf="selectedPilote && !selectedPilote.chasseur">
+      <p>Pilote étant affecté à aucun chasseur</p>
+    </div>
   </div>
-</div>
+</main>
+

@@ -1,14 +1,16 @@
-<table class="form-container">
-  <thead>
-  <tr>
-    <th>Nom de la Mission</th>
-    <th>Clôturer</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let mission of missions">
-    <td>{{ mission.nom }}</td>
-    <td><button (click)="closeMission(mission)">Clôturer</button></td>
-  </tr>
-  </tbody>
-</table>
+<div class="form-container container">
+  <table>
+    <thead>
+    <tr>
+      <th>Nom de la Mission</th>
+      <th>Clôturer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let mission of missions">
+      <td>{{ mission.nom }}</td>
+      <td><button (click)="closeMission(mission)">Clôturer</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

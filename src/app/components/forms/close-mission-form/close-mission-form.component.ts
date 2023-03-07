@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {IMission} from "../../../interfaces/imission";
 import {MissionService} from "../../../services/mission.service";
-import { MatDialog } from '@angular/material/dialog';
-import {ConfirmDialogComponent} from "../../confirm-dialog-component/confirm-dialog-component.component";
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import {NumberHourDialogComponent} from "../../confirm-dialog-component/number-hour-dialog.component";
+import {RecapMissionDialogComponent} from "../../confirm-dialog-component/recap-mission-dialog.component";
 
 @Component({
   selector: 'app-close-mission-form',
@@ -19,21 +20,32 @@ export class CloseMissionFormComponent implements OnInit {
   }
 
   getMissions() {
-    this.missionService.getMissions().subscribe(missions => {
+    this.missionService.getMissionsInProgress().subscribe(missions => {
       this.missions = missions;
     });
   }
 
   closeMission(mission: any) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: {
-        message: `Êtes-vous sûr de vouloir clôturer la mission "${mission.nom}" ?`
+    const dialogRef = this.dialog.open(NumberHourDialogComponent, {
+      height: '200px',
+      width: '400px',
+      position: {
+        left: 'calc(25% + 200px)'
       }
     });
 
-    dialogRef.afterClosed().subscribe((result: any) => {
-      if (result) {
-        this.missionService.endMission(mission.id, 44).subscribe(() => {
+    dialogRef.afterClosed().subscribe((hours: number) => {
+      if (hours) {
+        this.missionService.endMission(mission.id, hours).subscribe(data => {
+          console.log(data);
+          this.dialog.open(RecapMissionDialogComponent, {
+            height: '200px',
+            width: '400px',
+            position: {
+              left: 'calc(25% + 200px)'
+            },
+            data: data
+          })
           this.getMissions();
         });
       }

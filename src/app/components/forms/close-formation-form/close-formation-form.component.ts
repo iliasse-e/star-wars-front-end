@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {RebelleService} from "../../../services/rebelle.service";
-import {Irebelle} from "../../../interfaces/irebelle";
+import {PiloteService} from "../../../services/pilote.service";
+import {IPilote} from "../../../interfaces/ipilote";
+import {ConfirmDialogComponent} from "../../confirm-dialog-component/confirm-dialog-component.component";
+import {MatDialog} from "@angular/material/dialog";
+import {filter, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-close-formation-form',
@@ -8,17 +11,36 @@ import {Irebelle} from "../../../interfaces/irebelle";
   styleUrls: ['./close-formation-form.component.scss']
 })
 export class CloseFormationFormComponent implements OnInit {
-  public rebelles: Irebelle[] = [];
+  public rebelles: IPilote[] = [];
 
-  constructor(private rebelleService: RebelleService) {}
+  constructor(private piloteService: PiloteService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.rebelleService.getRebelles().subscribe(rebelles => {
+    this.getPilotes();
+  }
+
+  public getPilotes() {
+    this.piloteService.getPilotesEnFormation().subscribe(rebelles => {
       this.rebelles = rebelles;
     });
   }
 
-  handleCloseFormation(rebelle: Irebelle) {
-    // methode à écrire qui devra mettre fin à la formation du rebelle et le faire disparaitre de la vue
+  handleCloseFormation(rebelle: IPilote) {
+    const message: string = "Êtes vous certain de fermer la formation du pilote ?";
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message },
+      height: '200px',
+      width: '400px',
+      position: {
+        left: 'calc(25% + 200px)'
+      }
+    })
+
+    dialogRef.afterClosed().pipe(
+      filter((confirmation: any) => confirmation && rebelle.id !== undefined),
+      switchMap(() => this.piloteService.endFormation(rebelle.id))
+    ).subscribe(() => {
+      this.getPilotes();
+    });
   }
 }

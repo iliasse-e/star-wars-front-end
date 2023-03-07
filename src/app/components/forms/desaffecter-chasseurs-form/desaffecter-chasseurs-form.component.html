@@ -1,28 +1,20 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 form-container">
-
-  <ng-container matColumnDef="nom">
-    <th mat-header-cell *matHeaderCellDef> Nom </th>
-    <td mat-cell *matCellDef="let chasseur"> {{chasseur.nom}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> Type </th>
-    <td mat-cell *matCellDef="let chasseur"> {{chasseur.type}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="piloteAffecte">
-    <th mat-header-cell *matHeaderCellDef> Pilote affecté </th>
-    <td mat-cell *matCellDef="let chasseur"> {{chasseur.piloteAffecte}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let chasseurId">
-      <button mat-button (click)="handleDesaffect(chasseurId)">Désaffecter</button>
+<table>
+  <thead>
+  <tr>
+    <th>Nom</th>
+    <th>Type</th>
+    <th>Pilote affecté</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pilote of pilotes">
+    <td *ngIf="pilote.chasseur">{{pilote.chasseur.name}}</td>
+    <td *ngIf="pilote.chasseur">{{pilote.chasseur.typeChasseur}}</td>
+    <td>{{pilote.nom}}</td>
+    <td class="actions">
+      <button (click)="handleDesaffect(pilote.id)">Désaffecter</button>
     </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
+  </tr>
+  </tbody>
 </table>

@@ -1,1 +1,15 @@
 @import "../form";
+
+.container, main {
+  display: flex;
+  justify-content: center;
+
+}
+.container {
+  flex-direction: column
+}
+
+table {
+  display: block;
+}
+

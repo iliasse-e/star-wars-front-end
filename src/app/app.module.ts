@@ -24,7 +24,9 @@ import { NewMissionFormComponent } from './components/forms/new-mission-form/new
 import { CloseFormationFormComponent } from './components/forms/close-formation-form/close-formation-form.component';
 import { DesaffecterChasseursFormComponent } from './components/forms/desaffecter-chasseurs-form/desaffecter-chasseurs-form.component';
 import { SearchPiloteFormComponent } from './components/forms/search-pilote-form/search-pilote-form.component';
-import { CloseMissionFormComponent } from './components/forms/close-mission-form/close-mission-form.component';
+import {
+  CloseMissionFormComponent,
+} from './components/forms/close-mission-form/close-mission-form.component';
 import { AffectChasseurFormComponent } from './components/forms/affect-chasseur-form/affect-chasseur-form.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog-component/confirm-dialog-component.component';
 import {MatButtonModule} from "@angular/material/button";
@@ -37,6 +39,10 @@ import {MatIconModule, MatIconRegistry} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import {MatRadioModule} from "@angular/material/radio";
+import {NumberHourDialogComponent} from "./components/confirm-dialog-component/number-hour-dialog.component";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {RecapMissionDialogComponent} from "./components/confirm-dialog-component/recap-mission-dialog.component";
 
 @NgModule({
   declarations: [
@@ -63,7 +69,9 @@ import {MatRadioModule} from "@angular/material/radio";
     CloseMissionFormComponent,
     AffectChasseurFormComponent,
     ConfirmDialogComponent,
-    NavlinkComponentHeader
+    NavlinkComponentHeader,
+    NumberHourDialogComponent,
+    RecapMissionDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +88,10 @@ import {MatRadioModule} from "@angular/material/radio";
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatRadioModule
+    MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

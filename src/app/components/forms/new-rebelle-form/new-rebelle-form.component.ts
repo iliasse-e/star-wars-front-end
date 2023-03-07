@@ -4,6 +4,8 @@ import { RebelleService } from 'src/app/services/rebelle.service';
 import {Race} from "../../../enums/race";
 import {Irebelle} from "../../../interfaces/irebelle";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {PiloteService} from "../../../services/pilote.service";
+import {IPilote} from "../../../interfaces/ipilote";
 
 @Component({
   selector: 'app-new-rebelle-form',
@@ -16,16 +18,16 @@ export class NewRebelleFormComponent implements OnInit {
   protected selectedRace!: Race;
   private MAX_AGE: number = 800;
   private MIN_AGE: number = 10;
-  private newRebelle!: Irebelle;
+  private newRebelle!: IPilote;
 
-  constructor(private rebelleService: RebelleService, private snackbar: MatSnackBar) {}
+  constructor(private piloteService: PiloteService, private snackbar: MatSnackBar) {}
 
   public submit(): void {
     console.log("submit", this.form.get('rebelle')?.value);
     this.newRebelle = this.form.get('rebelle')?.value;
     console.log(this.form.getRawValue());
-    this.rebelleService.saveRebelle(this.newRebelle).subscribe(  rebelle => {
-        this.snackbar.open(this.newRebelle.prenom+" vient d'être inscrit en formation !", '', {
+    this.piloteService.savePilote(this.newRebelle).subscribe(  rebelle => {
+        this.snackbar.open(this.newRebelle.nom+" vient d'être inscrit en formation !", '', {
           duration: 2000,
           verticalPosition: 'top',
           horizontalPosition: 'center'
@@ -44,9 +46,7 @@ export class NewRebelleFormComponent implements OnInit {
     this.form = new FormGroup<any>({
       rebelle: new FormGroup<any>({
         id: new FormControl(null),
-        enFormation: new FormControl(true),
         nom: new FormControl(""),
-        prenom: new FormControl("", Validators.minLength(2)),
         race: new FormControl(""),
         age: new FormControl("", [Validators.min(this.MIN_AGE), Validators.max(this.MAX_AGE), Validators.required])
       })
