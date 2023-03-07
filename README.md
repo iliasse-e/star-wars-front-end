@@ -22,7 +22,7 @@ IDE (IntelliJ, Eclipse, etc.)
 ### Front End
 
 Cloner le dépôt Git qui contient le code source Angular 
-    `https://github.com/EveGuerard/Starwars`
+    `https://github.com/iliasse-e/star-wars-front-end`
 Se déplacer dans le répertoire du projet avec la ligne de commande.
 Exécuter la commande npm install pour installer toutes les dépendances requises.
 Exécuter la commande ng serve pour démarrer le serveur de développement.
@@ -32,6 +32,7 @@ Ouvrir un navigateur web et accéder à l'URL
 ### Back End
 
 Cloner le dépôt Git qui contient le code source Spring.
+    `https://github.com/iliasse-e/star-wars-back-end`
 Ouvrir le projet avec votre IDE (Eclipse, IntelliJ, etc.).
 Importer les dépendances requises en utilisant Maven.
 Exécuter le projet en tant qu'application Java.
